@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+  width: 100%;
+}
+
+.mainHeader {
+	height: 180px;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	background: rgb(30,89,149);
+	background: linear-gradient(90deg, rgba(30,89,149,1) 0%, rgba(34,151,94,1) 100%);
+}
+
+.textMainHeader {
+	font-weight: bold;
+	color: white;
+	font-size: 40pt;
+	margin: auto;
+}
+
+.searchBoxParent {
+	margin-left: 5%;
+}
+
+.searchBox {
+	height: 65px;
+	width: 100%;
+	font-size: 25pt;
+}
+
+.searchButton {
+	height: 100%;
+	width: 75%;
+	background: #22975e;
+	border-width: 0px;
+	border-radius: 4%;
+}
+
+.searchResultsRow {
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
+}
+
+.starButton {
+	background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    margin: auto;
+}
+
+.searchResultTitle {
+	font-size: 22pt;
+	text-align: left;
+}
+
+.instructionList {
+	font-size: 22pt;
+	text-align: left;
+}
+
+.favouritesHeader {
+	background: #f7fefa;
+}
+
+.textFavouritesHeader {
+	font-weight: bold;
+	color: #22975e;
+	font-size: 30pt;
+	margin: 1%;
+}
+
+.favouritesList {
+	background: #f7fefa;
+}

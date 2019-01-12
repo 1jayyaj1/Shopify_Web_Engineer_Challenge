@@ -21,12 +21,7 @@ class App extends React.Component {
       searchResults: [],
       favouritesList: [],
       name: '',
-      bla:decode("&lt;ul&gt; \n &lt;li&gt;Place item in the &lt;strong&gt;Garbage Bin.&lt;\/strong&gt;&lt;\/li&gt; \n&lt;\/ul&gt;")
      }
-  }
-
-  componentDidMount() {
-
   }
 
   starClicked = (favouriteIncoming) => {

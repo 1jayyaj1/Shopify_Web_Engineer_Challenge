@@ -1,6 +1,8 @@
-import React, { Component, input } from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import { Button, Table } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Table, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { Container, Row, Col } from 'react-grid-system';
 import searchIcon from'./assets/search_icon.png';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -72,13 +74,19 @@ class App extends React.Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
     const searchQuery = this._search.value;
-    const reactData = {"title": searchQuery};
-    axios.post("/", reactData)
-       .then(res => this.setState({ searchResults: res.data }))
-       .catch(err => console.log(err.data))
-  }
+    if (searchQuery.length > 0) {
+      event.preventDefault();
+      const searchQuery = this._search.value;
+      const reactData = {"title": searchQuery};
+      axios.post("/", reactData)
+         .then(res => this.setState({ searchResults: res.data }))
+         .catch(err => console.log(err.data))
+    }
+    else {
+
+    }
+    }
 
   render() {
     return (
@@ -91,7 +99,7 @@ class App extends React.Component {
           <div className="mainBody">
             <Row className="searchRow">
               <Col sm={11}>
-                  <input type="text" name="name" className="searchBox" ref={input => this._search = input} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
+                  <Input type="text" className="searchBox" placeholder="Search waste items by keyword..." innerRef={(node) => this._search = node} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
               </Col>
               <Col sm={1} className="searchButtonParent">
                 <Button className="searchButton" onClick={this.handleSubmit}>
@@ -102,6 +110,9 @@ class App extends React.Component {
             <Row>
               <Table borderless className="resultTable">
                 <tbody>
+                  {this.state.searchResults.length === 0 &&
+                    <label className="emptyListAlert">Get started by searching waste items</label>
+                  }
                   {this.state.searchResults.map((searchResult, index) => 
                     <tr key={index}>
                       <td className="searchResultsRow">
@@ -110,7 +121,7 @@ class App extends React.Component {
                             <Row className="resultTitle">
                                 {searchResult.isFavourite === false &&
                                   <Button className="starButton" onClick={() => this.starClicked(searchResult, index)}>
-                                          <svg width="22" height="22">
+                                          <svg width="18" height="18">
                                             <FontAwesomeIcon
                                               className="startIcon"
                                               icon="star"
@@ -122,7 +133,7 @@ class App extends React.Component {
                                 }
                                 {searchResult.isFavourite === true &&
                                   <div className="greenStar">
-                                    <svg width="22" height="22">
+                                    <svg width="18" height="18">
                                       <FontAwesomeIcon
                                         className="startIcon"
                                         icon="star"
@@ -154,6 +165,9 @@ class App extends React.Component {
             <Row className="favouritesList">
               <Table borderless className="resultTable">
                 <tbody>
+                  {this.state.favouritesList.length === 0 &&
+                    <label className="emptyListAlert">Star your favourite items</label>
+                  }
                   {this.state.favouritesList.map((favourite, index) => 
                     <tr key={index}>
                       <td className="searchResultsRow">
@@ -161,7 +175,7 @@ class App extends React.Component {
                           <Col sm={5}>
                             <Row className="resultTitle">
                                 <Button className="starButton" onClick={() => this.unFavourite(favourite, index)}>
-                                  <svg width="22" height="22">
+                                  <svg width="18" height="18">
                                     <FontAwesomeIcon
                                       className="startIcon"
                                       icon="star"

@@ -23,6 +23,7 @@
     "decode-html": "^2.0.0",
     "express": "^4.16.4",
     "react": "^16.7.0",
+    "react-bootstrap": "^0.32.4",
     "react-bootstrap-table": "^4.3.1",
     "react-dom": "^16.7.0",
     "react-grid-system": "^4.3.1",

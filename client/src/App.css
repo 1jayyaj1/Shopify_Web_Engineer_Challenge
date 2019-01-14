@@ -1,44 +1,75 @@
+ul {
+	margin: 0px!important;
+}
+
+li {
+	padding-bottom: 2%;
+}
+
 .App {
-  text-align: center;
-  width: 100%;
+	text-align: center;
+	width: 100%;
+	height: 100%;
 }
 
 .mainHeader {
-	height: 180px;
+	height: 130px;
 	margin-top: 1%;
 	margin-bottom: 1%;
 	background: rgb(30,89,149);
 	background: linear-gradient(90deg, rgba(30,89,149,1) 0%, rgba(34,151,94,1) 100%);
 }
 
+.mainBody {
+	margin: 1%;
+}
+
+.searchRow {
+	height: 55px;
+}
+
+.resultTable {
+	width: 99%;
+}
+
 .textMainHeader {
 	font-weight: bold;
 	color: white;
-	font-size: 40pt;
+	font-size: 30pt;
 	margin: auto;
 }
 
-.searchBoxParent {
-	margin-left: 5%;
+.searchBox {
+	height: 95%;
+	width: 100%;
+	border-width: 1px;
+	font-size: 17pt;
+	padding-left: 1%;
+	margin-right: 1%;
 }
 
-.searchBox {
-	height: 65px;
-	width: 100%;
-	font-size: 25pt;
+.searchButtonParent {
+	margin-left:1%;
 }
 
 .searchButton {
 	height: 100%;
-	width: 75%;
+	width: 100%;
 	background: #22975e;
 	border-width: 0px;
-	border-radius: 4%;
+}
+
+.searchButtonIcon {
+	height: 70%;
 }
 
 .searchResultsRow {
 	padding-top: 1.5%;
 	padding-bottom: 1.5%;
+}
+
+.resultTitle {
+	margin-left: 1%!important;
 }
 
 .starButton {
@@ -48,28 +79,37 @@
     cursor:pointer;
     overflow: hidden;
     outline:none;
-    margin: auto;
+}
+
+.greenStar {
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 1px;
+	padding-bottom: 1px;
 }
 
 .searchResultTitle {
-	font-size: 22pt;
+	font-size: 16pt;
 	text-align: left;
+	margin-left: 2%;
 }
 
 .instructionList {
-	font-size: 22pt;
+	font-size: 15pt;
 	text-align: left;
 }
 
 .favouritesHeader {
 	background: #f7fefa;
+	text-align: left;
 }
 
 .textFavouritesHeader {
 	font-weight: bold;
 	color: #22975e;
-	font-size: 30pt;
-	margin: 1%;
+	font-size: 25pt;
+	margin-left: 1%;
+	margin-top: 1%;
 }
 
 .favouritesList {

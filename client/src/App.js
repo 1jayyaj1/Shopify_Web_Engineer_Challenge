@@ -71,11 +71,9 @@ class App extends React.Component {
     return {__html: decode(encodedHTML)};
   };
 
-
-
   handleSubmit = event => {
     event.preventDefault();
-    const searchQuery = this._search.value
+    const searchQuery = this._search.value;
     const reactData = {"title": searchQuery};
     axios.post("/", reactData)
        .then(res => this.setState({ searchResults: res.data }))
@@ -90,99 +88,103 @@ class App extends React.Component {
               Toronto Waste Lookup
             </Col>
           </Row>
-          <Row className="searchBoxParent">
-            <Col sm={11}>
-               <input type="text" name="name" className="searchBox" ref={input => this._search = input} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
-            </Col>
-            <Col sm={1}>
-              <Button className="searchButton" onClick={this.handleSubmit}>
-               <img src={searchIcon}/>
-              </Button>
-            </Col>
-          </Row>
-          <Row>
-            <Table borderless>
-              <tbody>
-                {this.state.searchResults.map((searchResult, index) => 
-                  <tr key={index}>
-                    <td className="searchResultsRow">
-                      <Row>
-                        <Col sm={5}>
-                          <Row>
-                            <Col sm={1}>
-                              {searchResult.isFavourite === false &&
-                                <Button className="starButton" onClick={() => this.starClicked(searchResult, index)}>
-                                      {searchResult.isFavourite === false &&
-                                        <FontAwesomeIcon
-                                          className="startIcon"
-                                          icon="star"
-                                          color="#aaaaaa"
-                                          size="2x"
-                                        />
-                                      }
+          <div className="mainBody">
+            <Row className="searchRow">
+              <Col sm={11}>
+                  <input type="text" name="name" className="searchBox" ref={input => this._search = input} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
+              </Col>
+              <Col sm={1} className="searchButtonParent">
+                <Button className="searchButton" onClick={this.handleSubmit}>
+                  <img src={searchIcon} className="searchButtonIcon"/>
+                </Button>
+              </Col>
+            </Row>
+            <Row>
+              <Table borderless className="resultTable">
+                <tbody>
+                  {this.state.searchResults.map((searchResult, index) => 
+                    <tr key={index}>
+                      <td className="searchResultsRow">
+                        <Row>
+                          <Col sm={5}>
+                            <Row className="resultTitle">
+                                {searchResult.isFavourite === false &&
+                                  <Button className="starButton" onClick={() => this.starClicked(searchResult, index)}>
+                                          <svg width="22" height="22">
+                                            <FontAwesomeIcon
+                                              className="startIcon"
+                                              icon="star"
+                                              color="#aaaaaa"
+                                              size="2x"
+                                            />
+                                          </svg>
+                                  </Button>
+                                }
+                                {searchResult.isFavourite === true &&
+                                  <div className="greenStar">
+                                    <svg width="22" height="22">
+                                      <FontAwesomeIcon
+                                        className="startIcon"
+                                        icon="star"
+                                        color="#22975e"
+                                        size="2x"
+                                      />
+                                    </svg>
+                                  </div>
+                                }
+                                <label className="searchResultTitle">
+                                  {searchResult.title}
+                                </label>
+                            </Row>
+                          </Col>
+                          <Col sm={7} className="instructionList" dangerouslySetInnerHTML={this.createMarkup(searchResult.body)}>
+                          </Col>
+                        </Row> 
+                      </td>
+                    </tr> 
+                  )}
+                </tbody>
+              </Table>
+            </Row>
+            <Row className="favouritesHeader">
+              <Col sm={2} className="textFavouritesHeader">
+                Favourites
+              </Col>
+            </Row>
+            <Row className="favouritesList">
+              <Table borderless className="resultTable">
+                <tbody>
+                  {this.state.favouritesList.map((favourite, index) => 
+                    <tr key={index}>
+                      <td className="searchResultsRow">
+                        <Row>
+                          <Col sm={5}>
+                            <Row className="resultTitle">
+                                <Button className="starButton" onClick={() => this.unFavourite(favourite, index)}>
+                                  <svg width="22" height="22">
+                                    <FontAwesomeIcon
+                                      className="startIcon"
+                                      icon="star"
+                                      color="#22975e"
+                                      size="2x"
+                                    />
+                                  </svg>
                                 </Button>
-                              }
-                              {searchResult.isFavourite === true &&
-                                <FontAwesomeIcon
-                                  className="startIcon"
-                                  icon="star"
-                                  color="#22975e"
-                                  size="2x"
-                                />
-                              }
-                            </Col>
-                            <Col sm={11} className="searchResultTitle">
-                              {searchResult.title}
-                            </Col>
-                          </Row>
-                        </Col>
-                        <Col sm={7} className="instructionList" dangerouslySetInnerHTML={this.createMarkup(searchResult.body)}>
-                        </Col>
-                      </Row> 
-                    </td>
-                  </tr> 
-                )}
-              </tbody>
-            </Table>
-          </Row>
-          <Row className="favouritesHeader">
-            <Col sm={2} className="textFavouritesHeader">
-              Favourites
-            </Col>
-          </Row>
-          <Row className="favouritesList">
-            <Table borderless>
-              <tbody>
-                {this.state.favouritesList.map((favourite, index) => 
-                  <tr key={index}>
-                    <td className="searchResultsRow">
-                      <Row>
-                        <Col sm={5}>
-                          <Row>
-                            <Col sm={1}>
-                              <Button className="starButton" onClick={() => this.unFavourite(favourite, index)}>
-                                <FontAwesomeIcon
-                                  className="startIcon"
-                                  icon="star"
-                                  color="#22975e"
-                                  size="2x"
-                                />
-                              </Button>
-                            </Col>
-                            <Col sm={11} className="searchResultTitle">
-                              {favourite.title}
-                            </Col>
-                          </Row>
-                        </Col>
-                        <Col sm={7} className="instructionList" dangerouslySetInnerHTML={this.createMarkup(favourite.body)}>
-                        </Col>
-                      </Row> 
-                    </td>
-                  </tr> 
-                )}
-              </tbody>
-            </Table>
-          </Row>
+                                <label className="searchResultTitle">
+                                  {favourite.title}
+                                </label>
+                            </Row>
+                          </Col>
+                            <Col sm={7} className="instructionList" dangerouslySetInnerHTML={this.createMarkup(favourite.body)}>
+                          </Col>
+                        </Row> 
+                      </td>
+                    </tr> 
+                  )}
+                </tbody>
+              </Table>
+            </Row>
+          </div>
       </div>
     );
   }

@@ -84,6 +84,13 @@ class App extends React.Component {
       axios.post("/", reactData)
         .then(res => {
           console.log(res.data)
+          for (var favouriteItem in this.state.favouritesList) {
+            for (var item in res.data) {
+              if(this.state.favouritesList[favouriteItem].title === res.data[item].title) {
+                res.data[item].isFavourite = true;
+              }
+            }
+          }
           this.setState({ searchResults: res.data });
           if (res.data.length === 0) {
             this.setState({

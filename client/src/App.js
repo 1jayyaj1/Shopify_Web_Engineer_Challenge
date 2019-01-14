@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Search from './components/search/search.js'
+import Header from './components/header/header.js'
 import { Button, Table, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { Container, Row, Col } from 'react-grid-system';
@@ -22,8 +24,6 @@ class App extends React.Component {
       starColor: "#aaaaaa",
       searchResults: [],
       favouritesList: [],
-      name: '',
-      validSearch: null,
       searchResultAlert: "Get started by searching waste items"
      }
   }
@@ -55,56 +55,25 @@ class App extends React.Component {
     this.setState({ favouritesList })
   };
 
-  handleSearchChange = () => {
-    const searchQuery = this._search.value;
-    if (searchQuery.length === 0) {
+  clearSearchResults = () => {
       this.setState({
         searchResults: [],
         searchResultAlert: "Get started by searching waste items",
       })
-    }
   };
-
-  enterPressed(event) {
-    var code = event.keyCode || event.which;
-    if(code === 13) {
-        this.handleSubmit(event);
-    } 
-  }
 
   createMarkup = (encodedHTML) => {
     return {__html: decode(encodedHTML)};
   };
 
-  handleSubmit = event => {
-    var searchQuery = this._search.value;
-    if (searchQuery.length > 0) {
-      event.preventDefault();
-      const reactData = {"title": searchQuery};
-      axios.post("/", reactData)
-        .then(res => {
-          console.log(res.data)
-          for (var favouriteItem in this.state.favouritesList) {
-            for (var item in res.data) {
-              if(this.state.favouritesList[favouriteItem].title === res.data[item].title) {
-                res.data[item].isFavourite = true;
-              }
-            }
-          }
-          this.setState({ searchResults: res.data });
-          if (res.data.length === 0) {
-            this.setState({
-              searchResultAlert: "Your search \"" + searchQuery + "\" did not match any waste items"
-            })
-          }
-        })
-       .catch(err => console.log(err.data))
-    }
-    else {
+  searchKeyword = (resultList, searchQuery) => {
+    this.setState({ searchResults: resultList });
+    if (resultList.length === 0) {
       this.setState({
+        searchResultAlert: "Your search \"" + searchQuery + "\" did not match any waste items"
       })
     }
-  }
+  };
 
   render() {
     return (
@@ -115,19 +84,7 @@ class App extends React.Component {
             </Col>
           </Row>
           <div className="mainBody">
-            <Row className="searchRow">
-              <Col sm={11}>
-                <FormGroup className="searchBoxParent">
-                  <Input type="text" className="searchBox" valid={this.state.validSearch} placeholder="Search waste items by keyword..." innerRef={(node) => this._search = node} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
-                  <FormFeedback>Please search for a keyword.</FormFeedback>
-                </FormGroup>
-              </Col>
-              <Col sm={1} className="searchButtonParent">
-                <Button className="searchButton" onClick={this.handleSubmit}>
-                  <img src={searchIcon} className="searchButtonIcon"/>
-                </Button>
-              </Col>
-            </Row>
+            <Search onSearched={this.searchKeyword} clearSearch={this.clearSearchResults} favouritesListToSearch={this.state.favouritesList}/>
             <Row>
               <Table borderless className="resultTable">
                 <tbody>

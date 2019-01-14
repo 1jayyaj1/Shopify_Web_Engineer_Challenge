@@ -1,0 +1,14 @@
+.mainHeader {
+	height: 130px;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	background: rgb(30,89,149);
+	background: linear-gradient(90deg, rgba(30,89,149,1) 0%, rgba(34,151,94,1) 100%);
+}
+
+.textMainHeader {
+	font-weight: bold;
+	color: white;
+	font-size: 30pt;
+	margin: auto;
+}

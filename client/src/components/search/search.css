@@ -1,0 +1,29 @@
+.searchRow {
+	height: 55px;
+}
+
+.searchBoxParent {
+	height: 100%;
+}
+
+.searchBox {
+	height: 100%!important;
+	width: 100%;
+	border-width: 1px;
+	font-size: 17pt!important;
+}
+
+.searchButtonParent {
+	padding-left: 0px!important;
+}
+
+.searchButton {
+	height: 100%;
+	width: 100%;
+	background-color: #22975e!important;
+	border-color: #22975e!important;
+}
+
+.searchButtonIcon {
+	height: 90%;
+}

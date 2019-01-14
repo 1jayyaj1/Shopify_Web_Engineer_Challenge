@@ -12,57 +12,12 @@ li {
 	height: 100%;
 }
 
-.mainHeader {
-	height: 130px;
-	margin-top: 1%;
-	margin-bottom: 1%;
-	background: rgb(30,89,149);
-	background: linear-gradient(90deg, rgba(30,89,149,1) 0%, rgba(34,151,94,1) 100%);
-}
-
 .mainBody {
 	margin: 1%;
 }
 
-.searchRow {
-	height: 55px;
-}
-
 .resultTable {
 	width: 99%;
-}
-
-.textMainHeader {
-	font-weight: bold;
-	color: white;
-	font-size: 30pt;
-	margin: auto;
-}
-
-.searchBoxParent {
-	height: 100%;
-}
-
-.searchBox {
-	height: 100%!important;
-	width: 100%;
-	border-width: 1px;
-	font-size: 17pt!important;
-}
-
-.searchButtonParent {
-	padding-left: 0px!important;
-}
-
-.searchButton {
-	height: 100%;
-	width: 100%;
-	background-color: #22975e!important;
-	border-color: #22975e!important;
-}
-
-.searchButtonIcon {
-	height: 90%;
 }
 
 .emptyListAlert {

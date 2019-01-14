@@ -6,10 +6,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-for (var result in data) {
-	data[result].isFavourite = false;
-}
-
 app.post('/', function (req, res) {
 	const name = req.body.title
 	console.log(name);
@@ -18,6 +14,7 @@ app.post('/', function (req, res) {
 	for (var i=0 ; i < data.length ; i++)
 	{
 	    if (data[i].keywords.includes(name) === true) {
+	    	data[i].isFavourite = false;
 	    	results.push(data[i]);
 	    }
 	}

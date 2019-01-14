@@ -23,6 +23,8 @@ class App extends React.Component {
       searchResults: [],
       favouritesList: [],
       name: '',
+      validSearch: null,
+      searchResultAlert: "Get started by searching waste items"
      }
   }
 
@@ -57,7 +59,8 @@ class App extends React.Component {
     const searchQuery = this._search.value;
     if (searchQuery.length === 0) {
       this.setState({
-        searchResults: []
+        searchResults: [],
+        searchResultAlert: "Get started by searching waste items",
       })
     }
   };
@@ -74,19 +77,27 @@ class App extends React.Component {
   };
 
   handleSubmit = event => {
-    const searchQuery = this._search.value;
+    var searchQuery = this._search.value;
     if (searchQuery.length > 0) {
       event.preventDefault();
-      const searchQuery = this._search.value;
       const reactData = {"title": searchQuery};
       axios.post("/", reactData)
-         .then(res => this.setState({ searchResults: res.data }))
-         .catch(err => console.log(err.data))
+        .then(res => {
+          console.log(res.data)
+          this.setState({ searchResults: res.data });
+          if (res.data.length === 0) {
+            this.setState({
+              searchResultAlert: "Your search \"" + searchQuery + "\" did not match any waste items"
+            })
+          }
+        })
+       .catch(err => console.log(err.data))
     }
     else {
-
+      this.setState({
+      })
     }
-    }
+  }
 
   render() {
     return (
@@ -99,7 +110,10 @@ class App extends React.Component {
           <div className="mainBody">
             <Row className="searchRow">
               <Col sm={11}>
-                  <Input type="text" className="searchBox" placeholder="Search waste items by keyword..." innerRef={(node) => this._search = node} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
+                <FormGroup className="searchBoxParent">
+                  <Input type="text" className="searchBox" valid={this.state.validSearch} placeholder="Search waste items by keyword..." innerRef={(node) => this._search = node} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
+                  <FormFeedback>Please search for a keyword.</FormFeedback>
+                </FormGroup>
               </Col>
               <Col sm={1} className="searchButtonParent">
                 <Button className="searchButton" onClick={this.handleSubmit}>
@@ -111,7 +125,7 @@ class App extends React.Component {
               <Table borderless className="resultTable">
                 <tbody>
                   {this.state.searchResults.length === 0 &&
-                    <label className="emptyListAlert">Get started by searching waste items</label>
+                    <label className="emptyListAlert">{this.state.searchResultAlert}</label>
                   }
                   {this.state.searchResults.map((searchResult, index) => 
                     <tr key={index}>
@@ -166,7 +180,7 @@ class App extends React.Component {
               <Table borderless className="resultTable">
                 <tbody>
                   {this.state.favouritesList.length === 0 &&
-                    <label className="emptyListAlert">Star your favourite items</label>
+                    <label className="emptyListAlert">Star your favourite waste items</label>
                   }
                   {this.state.favouritesList.map((favourite, index) => 
                     <tr key={index}>

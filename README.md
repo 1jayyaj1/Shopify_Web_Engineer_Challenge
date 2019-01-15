@@ -1,4 +1,4 @@
-# Web_Engineer_Intern_Challenge
+# Web Engineer Intern Challenge for Shopify
 
 ## Table of contents
 1. [ Installation. ](#install)

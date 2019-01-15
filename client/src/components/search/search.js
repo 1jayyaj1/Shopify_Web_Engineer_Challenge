@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './search.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Table, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
-import { Container, Row, Col } from 'react-grid-system';
+import { Button, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
+import { Row, Col } from 'react-grid-system';
 import searchIcon from'../../assets/search_icon.png';
 
 import axios from 'axios';
@@ -40,7 +40,6 @@ class search extends React.Component {
       const reactData = {"title": searchQuery};
       axios.post("/", reactData)
         .then(res => {
-          console.log(res.data)
           for (var favouriteItem in this.props.favouritesListToSearch) {
             for (var item in res.data) {
               if(this.props.favouritesListToSearch[favouriteItem].title === res.data[item].title) {
@@ -53,7 +52,6 @@ class search extends React.Component {
        .catch(err => console.log(err.data))
     }
     else {
-      console.log("lol")
       this.setState({
         invalidSearch: true
       })
@@ -62,16 +60,16 @@ class search extends React.Component {
 
   render() {
     return (
-      <Row className="searchRow">
+      <Row className="search-row">
         <Col sm={11}>
-          <FormGroup className="searchBoxParent">
-            <Input required type="text" className="searchBox" invalid={this.state.invalidSearch} placeholder="Search waste items by keyword..." innerRef={(node) => this._search = node} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
-            <FormFeedback className="invalidSearchAlert">You can't leave this empty.</FormFeedback>
+          <FormGroup className="search-form">
+            <Input required type="text" className="search-input" invalid={this.state.invalidSearch} placeholder="Search waste item by keyword..." innerRef={(node) => this._search = node} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
+            <FormFeedback className="invalid-search-alert">You can't leave this empty.</FormFeedback>
           </FormGroup>
         </Col>
-        <Col sm={1} className="searchButtonParent">
-          <Button className="searchButton" onClick={this.handleSubmit}>
-            <img src={searchIcon} className="searchButtonIcon"/>
+        <Col sm={1} className="search-button-col">
+          <Button className="search-button" onClick={this.handleSubmit}>
+            <img src={searchIcon} className="search-button-icon"/>
           </Button>
         </Col>
       </Row>

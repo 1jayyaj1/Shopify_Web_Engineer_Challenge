@@ -1,4 +1,4 @@
-.mainHeader {
+.main-header {
 	height: 130px;
 	margin-top: 1%;
 	margin-bottom: 1%;
@@ -6,9 +6,13 @@
 	background: linear-gradient(90deg, rgba(30,89,149,1) 0%, rgba(34,151,94,1) 100%);
 }
 
-.textMainHeader {
+.main-header-col {
+	margin: auto;
+}
+
+.main-header-text {
 	font-weight: bold;
 	color: white;
 	font-size: 30pt;
-	margin: auto;
+	margin: 0px!important;
 }

@@ -5,18 +5,7 @@ import Search from './components/search/search.js'
 import Header from './components/header/header.js'
 import SearchResults from './components/searchResults/searchResults.js'
 import Favourites from './components/favourites/favourites.js'
-import { Button, Table, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
-import { AvForm, AvField } from 'availity-reactstrap-validation';
-import { Container, Row, Col } from 'react-grid-system';
-import searchIcon from'./assets/search_icon.png';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 
-library.add(faStar);
-
-var decode = require('decode-html');
 
 class App extends React.Component {
 
@@ -28,6 +17,10 @@ class App extends React.Component {
       favouritesList: [],
       searchResultAlert: "Get started by searching waste items"
      }
+  }
+
+  componentDidMount(){
+    document.title = "Waste Lookup"
   }
 
   starClicked = (favouriteIncoming) => {
@@ -65,15 +58,11 @@ class App extends React.Component {
     }
   };
 
-  createMarkup = (encodedHTML) => {
-    return {__html: decode(encodedHTML)};
-  };
-
   render() {
     return (
       <div className="App">
           <Header/>
-          <div className="mainBody">
+          <div className="main-body">
             <Search onSearched={this.searchKeyword} clearSearch={this.clearSearchState} favouritesListToSearch={this.state.favouritesList}/>
             <SearchResults onFavourited={this.starClicked} searchResultsToTable={this.state.searchResults} searchResultAlertToTable={this.state.searchResultAlert}/>
             <Favourites unFavouriteToApp={this.unFavouriteState} searchResultsToTable={this.state.searchResults} favouritesToTable={this.state.favouritesList}/>

@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import './searchResults.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Table, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
-import { Container, Row, Col } from 'react-grid-system';
-import searchIcon from'../../assets/search_icon.png';
+import { Button, Table, Label } from 'reactstrap';
+import { Row, Col } from 'react-grid-system';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 
 library.add(faStar);
 
 var decode = require('decode-html');
 
-class App extends React.Component {
+class searchResults extends React.Component {
 
   starClicked = (favouriteIncoming) => {
     this.props.onFavourited(favouriteIncoming);
@@ -26,19 +24,19 @@ class App extends React.Component {
   render() {
     return (
       <Row>
-        <Table borderless className="resultTable">
+        <Table borderless className="waste-items-table">
           <tbody>
             {this.props.searchResultsToTable.length === 0 &&
-              <label className="emptyListAlert">{this.props.searchResultAlertToTable}</label>
+              <Label className="empty-list-alert">{this.props.searchResultAlertToTable}</Label>
             }
             {this.props.searchResultsToTable.map((searchResult, index) => 
               <tr key={index}>
-                <td className="searchResultsRow">
+                <td className="waste-items-row">
                   <Row>
                     <Col sm={5}>
-                      <Row className="resultTitle">
+                      <Row className="waste-item-title-row">
                           {searchResult.isFavourite === false &&
-                            <Button className="starButton" onClick={() => this.starClicked(searchResult, index)}>
+                            <Button className="star-button" onClick={() => this.starClicked(searchResult, index)}>
                                     <svg width="18" height="18">
                                       <FontAwesomeIcon
                                         icon="star"
@@ -49,7 +47,7 @@ class App extends React.Component {
                             </Button>
                           }
                           {searchResult.isFavourite === true &&
-                            <div className="greenStar">
+                            <div className="green-star">
                               <svg width="18" height="18">
                                 <FontAwesomeIcon
                                   icon="star"
@@ -59,12 +57,12 @@ class App extends React.Component {
                               </svg>
                             </div>
                           }
-                          <label className="searchResultTitle">
+                          <Label className="waste-item-title">
                             {searchResult.title}
-                          </label>
+                          </Label>
                       </Row>
                     </Col>
-                    <Col sm={7} className="instructionList" dangerouslySetInnerHTML={this.createMarkup(searchResult.body)}>
+                    <Col sm={7} className="waste-item-instructions" dangerouslySetInnerHTML={this.createMarkup(searchResult.body)}>
                     </Col>
                   </Row> 
                 </td>
@@ -77,4 +75,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default searchResults;

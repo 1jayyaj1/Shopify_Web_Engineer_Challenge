@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './favourites.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Table, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
-import { Container, Row, Col } from 'react-grid-system';
+import { Button, Table, Label } from 'reactstrap';
+import { Row, Col } from 'react-grid-system';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,24 +41,26 @@ class favourites extends React.Component {
   render() {
     return (
       <div>
-        <Row className="favouritesHeader">
-          <Col sm={2} className="textFavouritesHeader">
-            Favourites
+        <Row className="favourites-header">
+          <Col sm={2} className="favourites-header-text">
+            <Label>
+              Favourites
+            </Label>
           </Col>
         </Row>
-        <Row className="favouritesList">
-          <Table borderless className="resultTable">
+        <Row className="favourites-list-row">
+          <Table borderless className="favourite-items-table">
             <tbody>
               {this.props.favouritesToTable.length === 0 &&
-                <label className="emptyListAlert">Star your favourite waste items</label>
+                <Label className="empty-list-alert">Star your favourite waste items</Label>
               }
               {this.props.favouritesToTable.map((favourite, index) => 
                 <tr key={index}>
-                  <td className="searchResultsRow">
+                  <td className="favourite-item-row">
                     <Row>
                       <Col sm={5}>
-                        <Row className="resultTitle">
-                            <Button className="starButton" onClick={() => this.unFavourite(favourite, index)}>
+                        <Row className="favourite-title-row">
+                            <Button className="star-button" onClick={() => this.unFavourite(favourite, index)}>
                               <svg width="18" height="18">
                                 <FontAwesomeIcon
                                   icon="star"
@@ -67,12 +69,12 @@ class favourites extends React.Component {
                                 />
                               </svg>
                             </Button>
-                            <label className="searchResultTitle">
+                            <Label className="favourite-item-title">
                               {favourite.title}
-                            </label>
+                            </Label>
                         </Row>
                       </Col>
-                        <Col sm={7} className="instructionList" dangerouslySetInnerHTML={this.createMarkup(favourite.body)}>
+                        <Col sm={7} className="favourite-item-instructions" dangerouslySetInnerHTML={this.createMarkup(favourite.body)}>
                       </Col>
                     </Row> 
                   </td>

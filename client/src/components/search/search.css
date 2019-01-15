@@ -1,33 +1,33 @@
-.searchRow {
+.search-row {
 	height: 55px;
 }
 
-.searchBoxParent {
+.search-form {
 	height: 100%;
 }
 
-.searchBox {
+.search-input {
 	height: 100%!important;
 	width: 100%;
 	border-width: 1px;
 	font-size: 17pt!important;
 }
 
-.invalidSearchAlert {
+.invalid-search-alert {
 	text-align: left;
 }
 
-.searchButtonParent {
+.search-button-col {
 	padding-left: 0px!important;
 }
 
-.searchButton {
+.search-button {
 	height: 100%;
 	width: 100%;
 	background-color: #22975e!important;
 	border-color: #22975e!important;
 }
 
-.searchButtonIcon {
+.search-button-icon {
 	height: 90%;
 }

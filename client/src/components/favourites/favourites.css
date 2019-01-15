@@ -1,0 +1,65 @@
+ul {
+	margin: 0px!important;
+}
+
+li {
+	padding-bottom: 2%;
+}
+
+.favouritesHeader {
+	background: #f7fefa;
+	text-align: left;
+}
+
+.textFavouritesHeader {
+	font-weight: bold;
+	color: #22975e;
+	font-size: 25pt;
+	margin-left: 1%;
+	margin-top: 1%;
+}
+
+.favouritesList {
+	background: #f7fefa;
+}
+
+.resultTable {
+	margin-top: 0.7rem;
+}
+
+.emptyListAlert {
+	margin-top: 1%;
+	font-size: 15pt;
+	color: 	#6E757D !important;
+}
+
+.searchResultsRow {
+	padding-top: 1.5%;
+	padding-bottom: 1.5%;
+}
+
+.resultTitle {
+	margin-left: 1%!important;
+}
+
+.starButton {
+	background-color: Transparent!important;
+    background-repeat:no-repeat!important;
+    border: none!important;
+    cursor:pointer!important;
+    overflow: hidden!important;
+    outline:none!important;
+    padding: 0px!important;
+}
+
+.searchResultTitle {
+	font-size: 16pt;
+	text-align: left;
+	margin-left: 3%;
+	margin-bottom: 0px;
+}
+
+.instructionList {
+	font-size: 15pt;
+	text-align: left;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Table, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+import { Label } from 'reactstrap';
 import { Container, Row, Col } from 'react-grid-system';
 
 class header extends React.Component {

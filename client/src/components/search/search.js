@@ -12,7 +12,7 @@ class search extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      validSearch: null,
+      invalidSearch: null,
      }
   }
 
@@ -33,6 +33,9 @@ class search extends React.Component {
   handleSubmit = event => {
     var searchQuery = this._search.value;
     if (searchQuery.length > 0) {
+      this.setState({
+        invalidSearch: null
+      })
       event.preventDefault();
       const reactData = {"title": searchQuery};
       axios.post("/", reactData)
@@ -50,7 +53,9 @@ class search extends React.Component {
        .catch(err => console.log(err.data))
     }
     else {
+      console.log("lol")
       this.setState({
+        invalidSearch: true
       })
     }
   }
@@ -60,8 +65,8 @@ class search extends React.Component {
       <Row className="searchRow">
         <Col sm={11}>
           <FormGroup className="searchBoxParent">
-            <Input type="text" className="searchBox" valid={this.state.validSearch} placeholder="Search waste items by keyword..." innerRef={(node) => this._search = node} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
-            <FormFeedback>Please search for a keyword.</FormFeedback>
+            <Input required type="text" className="searchBox" invalid={this.state.invalidSearch} placeholder="Search waste items by keyword..." innerRef={(node) => this._search = node} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
+            <FormFeedback className="invalidSearchAlert">You can't leave this empty.</FormFeedback>
           </FormGroup>
         </Col>
         <Col sm={1} className="searchButtonParent">

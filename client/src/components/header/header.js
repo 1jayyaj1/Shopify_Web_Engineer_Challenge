@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './header.css';
+import './header.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Label } from 'reactstrap';
 import { Row, Col } from 'react-grid-system';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './search.css';
+import './search.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 import { Row, Col } from 'react-grid-system';

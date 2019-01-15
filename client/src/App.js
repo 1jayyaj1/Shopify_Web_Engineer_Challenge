@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './components/search/search.js'
 import Header from './components/header/header.js'

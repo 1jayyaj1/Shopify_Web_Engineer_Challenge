@@ -1,21 +1,40 @@
 # Web_Engineer_Intern_Challenge
 
-##Table of contents
+## Table of contents
 1. [ Installation. ](#install)
 2. [ Usage. ](#usage)
 3. [ Technologies. ](#tech)
 
 <a name="install"></a>
-## 1. Installation
+## Installation
 
-sometext
+*Node.js* is our friend here, so make sure to download and install it from this link: https://nodejs.org/en/. Then, navigate to the project's folder, and run these commands.
+
+```
+npm install   //Installs missing dependencies
+npm run dev   //Starts both the front-end and the back-end
+```
 
 <a name="usage"></a>
-## 2. Usage
+## Usage
 
-sometext
+All of the required features for this challenge were successfully implemented. I took the opporrtunity to add a couple minor improvements to make the experience more enjoyable!
+
+### 1. Field validation
+
+If the user tries to search for waste items while the input field is empty, they get alerted of the error and the API call is not performed.
+
+### 2. Empty list messages
+
+When the favourite waste items list, and/or the search results list are empty, the user gets prompted on how to get started using the website.
+
+### 3. No search results
+
+The user gets prompted when there is no results associated with a searched keyword.
+
+
 
 <a name="tech"></a>
-## 3. Technologies
+## Technologies
 
 Can you think of a better duo than peanut butter and jelly? Yeah, it's called using ReactJS for front-end and Express.js for back-end.

@@ -1,5 +1,5 @@
 const express = require('express');
-const data = require('./client/src/assets/data.json');
+const data = require('./Toronto_waste_data/data.json');
 var bodyParser = require("body-parser");
 const app = express();
 const path = require('path');
@@ -27,8 +27,7 @@ app.get('*', (req, res) => {
 
 
 app.post('/', function (req, res) {
-	const name = req.body.title
-	console.log(name);
+	const name = req.body.title.toLowerCase();
 	var results = [];
 	var searchVal = "my Name";
 	for (var i=0 ; i < data.length ; i++)

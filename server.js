@@ -2,9 +2,29 @@ const express = require('express');
 const data = require('./client/src/assets/data.json');
 var bodyParser = require("body-parser");
 const app = express();
+const path = require('path');
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//Static file declaration
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+//production mode
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static(path.join(__dirname, 'client/build')));
+	//
+	app.get('*', (req, res) => {
+	  res.sendfile(path.join(__dirname = 'client/build/index.html'));
+	})
+}
+
+//build mode
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname+'/client/public/index.html'));
+})
+
 
 app.post('/', function (req, res) {
 	const name = req.body.title
@@ -21,7 +41,5 @@ app.post('/', function (req, res) {
 	res.send(results)
 	console.log(results[1])
 })
-
-const port = 5000;
 
 app.listen(port, () => `Server running on port ${port}`);

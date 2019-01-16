@@ -17,10 +17,16 @@ class App extends React.Component {
       favouritesList: [],
       searchResultAlert: "Get started by searching waste items"
      }
+     this.connecToServer = this.connecToServer.bind(this);
+  }
+
+  connecToServer() {
+    fetch('/');
   }
 
   componentDidMount(){
     document.title = "Waste Lookup"
+    this.connecToServer();
   }
 
   starClicked = (favouriteIncoming) => {

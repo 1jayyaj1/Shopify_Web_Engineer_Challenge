@@ -47,7 +47,7 @@ class search extends React.Component {
               }
             }
           }
-          this.props.onSearched(res.data, searchQuery);  
+          this.props.onSearched(res.data, searchQuery);
         })
        .catch(err => console.log(err.data))
     }
@@ -61,13 +61,13 @@ class search extends React.Component {
   render() {
     return (
       <Row className="search-row">
-        <Col sm={11}>
+        <Col sm={11} xs={11}>
           <FormGroup className="search-form">
             <Input required type="text" className="search-input" invalid={this.state.invalidSearch} placeholder="Search waste item by keyword..." innerRef={(node) => this._search = node} onKeyPress={this.enterPressed.bind(this)} onChange={this.handleSearchChange}/>
             <FormFeedback className="invalid-search-alert">You can't leave this empty.</FormFeedback>
           </FormGroup>
         </Col>
-        <Col sm={1} className="search-button-col">
+        <Col sm={1} xs={1}className="search-button-col">
           <Button className="search-button" onClick={this.handleSubmit}>
             <img src={searchIcon} className="search-button-icon"/>
           </Button>

@@ -15,7 +15,7 @@
 
 ```
 npm install   //Installs missing dependencies.
-cd  client
+cd client
 npm install   //Installs missing dependencies for the client folder.
 cd ..
 npm run dev   //Starts both the front-end and the back-end.

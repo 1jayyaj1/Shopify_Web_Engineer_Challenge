@@ -14,8 +14,11 @@
 *Node.js* is our friend here, so make sure to download and install it from this link: https://nodejs.org/en/. Then, navigate to the project's folder, and run these commands.
 
 ```
-npm install   //Installs missing dependencies
-npm run dev   //Starts both the front-end and the back-end
+npm install   //Installs missing dependencies.
+cd  client
+npm install   //Installs missing dependencies for the client folder.
+cd ..
+npm run dev   //Starts both the front-end and the back-end.
 ```
 
 

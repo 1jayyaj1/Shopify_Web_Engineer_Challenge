@@ -67,10 +67,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+          // Header component.
           <Header/>
           <div className="main-body">
+            // Search input and button component.
             <Search onSearched={this.searchKeyword} clearSearch={this.clearSearchState} favouritesListToSearch={this.state.favouritesList}/>
+            // Searched results list component.
             <SearchResults onFavourited={this.starClicked} searchResultsToTable={this.state.searchResults} searchResultAlertToTable={this.state.searchResultAlert}/>
+            // Favourited results list component.
             <Favourites unFavouriteToApp={this.unFavouriteState} searchResultsToTable={this.state.searchResults} favouritesToTable={this.state.favouritesList}/>
           </div>
       </div>

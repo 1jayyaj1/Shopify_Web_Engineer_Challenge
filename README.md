@@ -39,22 +39,22 @@ The user gets prompted when there is no results associated with a searched keywo
 <a name="tech"></a>
 ## Technologies
 
-Can you think of a better duo than peanut butter and jelly? Yeah, it's called using ReactJS for front-end and Express.js for back-end.
+Can you think of a better duo than peanut butter and jelly? Yeah, it's called using ReactJS for front-end and Express.js for back-end. Thanks to Heroku, this project is deployed online for testing purposes.
 
 
 <a name="improv"></a>
-## Improvements
+## Future Improvements
 
 Although I didn't want to alter the proposed UI in the provided screenshot by adding extra features, I did think of creative future improvements for this project.
 
 ### 1. Pages for search results
 
-If the user tries to search for waste items while the input field is empty, they get alerted of the error and the API call is not performed.
+Some keyword searches might return too many results to fit in a single page. It would therefore be great to split these results into pages that could be viewed by the user without scrolling.
 
 ### 2. Clear all favourites button
 
-When the favourite waste items list, and/or the search results list are empty, the user gets prompted on how to get started using the website.
+Currently, users remove items from their favourites list by selecting each item individually. Implementing a button that would clear the entire favourites list would improve the user experience as the list grows larger.
 
 ### 3. Similar keywords when search has no matching results
 
-The user gets prompted when there is no results associated with a searched keyword.
+When a user enters a keyword with a spelling mistake, it would be favorable to use a library that searches for similar words in order to return potential keywords to the user. This way, the user will not have to type their keyword everytime they mess it up.

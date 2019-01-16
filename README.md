@@ -31,13 +31,13 @@ All of the required features for this challenge are successfully implemented. I 
 
 If the user tries to search for waste items while the input field is empty, they get alerted of the error, and the API call is not performed.
 
-### 2. Empty list messages
+### 2. Searched keyword converted to lower case
 
-When the favorite waste items list, and/or the search results list are empty, the user gets prompted on how to get started.
+In the data JSON file, keywords are all in lower case characters. Therefore, I made sure that my back-end converts the searched keyword to lower case characters before finding matching results in the data JSON file.
 
 ### 3. No search results message
 
-The user gets prompted when there are no results associated with a searched keyword.
+The user gets prompted with a message that informs them when there are no results associated with a searched keyword.
 
 
 <a name="tech"></a>

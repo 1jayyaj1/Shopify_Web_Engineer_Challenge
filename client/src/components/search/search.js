@@ -67,7 +67,7 @@ class search extends React.Component {
             <FormFeedback className="invalid-search-alert">You can't leave this empty.</FormFeedback>
           </FormGroup>
         </Col>
-        <Col sm={1} xs={1}className="search-button-col">
+        <Col sm={1} xs={2}className="search-button-col">
           <Button className="search-button" onClick={this.handleSubmit}>
             <img src={searchIcon} className="search-button-icon"/>
           </Button>

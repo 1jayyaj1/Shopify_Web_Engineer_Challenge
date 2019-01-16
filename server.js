@@ -6,6 +6,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, './client/build')));
+
 app.post('/', function (req, res) {
 	const name = req.body.title
 	console.log(name);
@@ -22,6 +24,7 @@ app.post('/', function (req, res) {
 	console.log(results[1])
 })
 
-const port = 5000;
+const port = process.env.PORT || 5000;
+app.listen(port);
 
-app.listen(port, () => `Server running on port ${port}`);
+console.log('App is listening on port ' + port);

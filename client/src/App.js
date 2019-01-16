@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './components/search/search.js'
@@ -8,6 +9,14 @@ import Favourites from './components/favourites/favourites.js'
 
 
 class App extends React.Component {
+
+  const App = () => (
+    <div>
+      <Switch>
+        <Route exact path='/'/>
+      </Switch>
+    </div>
+  )
 
   constructor(props) {
     super(props);
@@ -60,14 +69,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-          <Header/>
-          <div className="main-body">
-            <Search onSearched={this.searchKeyword} clearSearch={this.clearSearchState} favouritesListToSearch={this.state.favouritesList}/>
-            <SearchResults onFavourited={this.starClicked} searchResultsToTable={this.state.searchResults} searchResultAlertToTable={this.state.searchResultAlert}/>
-            <Favourites unFavouriteToApp={this.unFavouriteState} searchResultsToTable={this.state.searchResults} favouritesToTable={this.state.favouritesList}/>
-          </div>
-      </div>
+      <Switch>
+        <div className="App">
+            <Header/>
+            <div className="main-body">
+              <Search onSearched={this.searchKeyword} clearSearch={this.clearSearchState} favouritesListToSearch={this.state.favouritesList}/>
+              <SearchResults onFavourited={this.starClicked} searchResultsToTable={this.state.searchResults} searchResultAlertToTable={this.state.searchResultAlert}/>
+              <Favourites unFavouriteToApp={this.unFavouriteState} searchResultsToTable={this.state.searchResults} favouritesToTable={this.state.favouritesList}/>
+            </div>
+        </div>
+      </Switch>
     );
   }
 }

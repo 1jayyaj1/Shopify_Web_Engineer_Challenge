@@ -3,10 +3,15 @@
 	width: 99%;
 }
 
-.empty-list-alert {
-	margin-top: 1%;
+.empty-list-alert-search {
+	margin-top: 1.8%!important;
+	margin-bottom: 0%!important;
 	font-size: 15pt;
 	color: 	#6E757D !important;
+}
+
+.test {
+	display: block!important;
 }
 
 .waste-items-row {

@@ -13,14 +13,12 @@
 
 .favourites-list-row {
 	background: #f7fefa;
+	display: block!important;
 }
 
-.favourite-items-table {
-	margin-top: 0.7rem;
-}
-
-.empty-list-alert {
+.empty-list-alert-favourite {
 	margin-top: 1%;
+	margin-bottom: 3%;
 	font-size: 15pt;
 	color: 	#6E757D !important;
 }

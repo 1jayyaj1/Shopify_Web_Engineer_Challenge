@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './favourites.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Table, Label } from 'reactstrap';
@@ -13,6 +13,7 @@ var decode = require('decode-html');
 
 class favourites extends React.Component {
 
+  // Removes the item from the list and receives props from App.js to update the list of favourites.
   unFavourite = (favouriteOutgoing, index) => {
     this.props.searchResultsToTable.forEach(function(searchResult) {
       if (searchResult.title === favouriteOutgoing.title) {
@@ -25,17 +26,10 @@ class favourites extends React.Component {
     this.props.unFavouriteToApp(favouritesList);
   };
 
+  // Instructions for waste items are received from back-end in HTML format,
+  // this function converts these instructions in a list of bullet points.
   createMarkup = (encodedHTML) => {
     return {__html: decode(encodedHTML)};
-  };
-
-  searchKeyword = (resultList, searchQuery) => {
-    this.setState({ searchResults: resultList });
-    if (resultList.length === 0) {
-      this.setState({
-        searchResultAlert: "Your search \"" + searchQuery + "\" did not match any waste items"
-      })
-    }
   };
 
   render() {
@@ -43,17 +37,19 @@ class favourites extends React.Component {
       <div>
         <Row className="favourites-header">
           <Col sm={2} className="favourites-header-text">
-            <Label>
-              Favourites
-            </Label>
+            <Label>Favourites</Label>
           </Col>
         </Row>
         <Row className="favourites-list-row">
-          <Table borderless className="favourite-items-table">
+          {/* Receives props from App.js to check if the favourites list is empty. */}
+          {this.props.favouritesToTable.length === 0 &&
+            <Label className="empty-list-alert-favourite">
+              Star your favourite waste items
+            </Label>
+          }
+          <Table borderless>
             <tbody>
-              {this.props.favouritesToTable.length === 0 &&
-                <Label className="empty-list-alert">Star your favourite waste items</Label>
-              }
+              {/* Receives props from App.js and maps each element of the favourite items list to the "favourite" variable. */}
               {this.props.favouritesToTable.map((favourite, index) => 
                 <tr key={index}>
                   <td className="favourite-item-row">
@@ -69,12 +65,14 @@ class favourites extends React.Component {
                                 />
                               </svg>
                             </Button>
+                            {/* Display the favourite item title. */}
                             <Label className="favourite-item-title">
                               {favourite.title}
                             </Label>
                         </Row>
                       </Col>
-                        <Col sm={7} className="favourite-item-instructions" dangerouslySetInnerHTML={this.createMarkup(favourite.body)}>
+                      {/* Display the favourite item instructions. */}
+                      <Col sm={7} className="favourite-item-instructions" dangerouslySetInnerHTML={this.createMarkup(favourite.body)}>
                       </Col>
                     </Row> 
                   </td>

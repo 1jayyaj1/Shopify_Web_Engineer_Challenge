@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './header.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Label } from 'reactstrap';
@@ -12,7 +12,7 @@ class header extends React.Component {
         <Col sm={12} className="main-header-col">
         	<Label className="main-header-text">
           		Toronto Waste Lookup
-          	</Label>
+          </Label>
         </Col>
       </Row>
     );

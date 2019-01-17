@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './components/search/search.js'
@@ -6,29 +6,29 @@ import Header from './components/header/header.js'
 import SearchResults from './components/searchResults/searchResults.js'
 import Favourites from './components/favourites/favourites.js'
 
-
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { 
-      starColor: "#aaaaaa",
-      searchResults: [],
-      favouritesList: [],
-      searchResultAlert: "Get started by searching waste items"
+      searchResults: [],  // List that contains the results of a searched keyword.
+      favouritesList: [], // List that contains the elements that were favourited.
+      searchResultAlert: "Get started by searching waste items" // Default message when no keywords are searched.
      }
-     this.connecToServer = this.connecToServer.bind(this);
+    this.connecToServer = this.connecToServer.bind(this);
   }
 
   connecToServer() {
     fetch('/');
   }
 
+  // Connects to server as soon as the page loads.
   componentDidMount(){
-    document.title = "Waste Lookup"
     this.connecToServer();
   }
 
+  // Creates a JS object in the same format as the one got from the JSON file.
+  // Adds this JS object to the list of favourites.
   starClicked = (favouriteIncoming) => {
     if (favouriteIncoming.isFavourite === false) {
       const favourite = {
@@ -44,17 +44,20 @@ class App extends React.Component {
     }
   };
 
+  // Using props, we trigger this function from search.js.
   clearSearchState = () => {
-      this.setState({
-        searchResults: [],
-        searchResultAlert: "Get started by searching waste items",
-      })
+    this.setState({
+      searchResults: [],
+      searchResultAlert: "Get started by searching waste items",
+    })
   };
 
+  // Using props, we trigger this function from favourites.js
   unFavouriteState = (favouritesList) => {
       this.setState({ favouritesList })
   };
 
+  // Using props, we trigger this function from search.js
   searchKeyword = (resultList, searchQuery) => {
     this.setState({ searchResults: resultList });
     if (resultList.length === 0) {
@@ -67,12 +70,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-          <Header/>
-          <div className="main-body">
-            <Search onSearched={this.searchKeyword} clearSearch={this.clearSearchState} favouritesListToSearch={this.state.favouritesList}/>
-            <SearchResults onFavourited={this.starClicked} searchResultsToTable={this.state.searchResults} searchResultAlertToTable={this.state.searchResultAlert}/>
-            <Favourites unFavouriteToApp={this.unFavouriteState} searchResultsToTable={this.state.searchResults} favouritesToTable={this.state.favouritesList}/>
-          </div>
+        <Header/>
+        <div className="main-body">
+          <Search onSearched={this.searchKeyword} clearSearch={this.clearSearchState} favouritesListToSearch={this.state.favouritesList}/>
+          <SearchResults onFavourited={this.starClicked} searchResultsToTable={this.state.searchResults} searchResultAlertToTable={this.state.searchResultAlert}/>
+          <Favourites unFavouriteToApp={this.unFavouriteState} searchResultsToTable={this.state.searchResults} favouritesToTable={this.state.favouritesList}/>
+        </div>
       </div>
     );
   }

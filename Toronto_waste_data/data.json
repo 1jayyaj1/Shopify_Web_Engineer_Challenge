@@ -637,10 +637,11 @@
       "keywords":"Treegator bag, garden sprinkler, clay flower pot, clay planter, garden hose, hose, rubber hose, vinyl hose, poisonous plant, noxious plant, invasive plant, garlic mustard plant, giant hogweed, hogweed, poison ivy, dog strangling vine, plastic shovel, plastic snow shovel, garden gloves, work gloves, rock salt, road salt,de-icer, ice salt"
    },
    {
-      "body":"&lt;ul&gt; \n &lt;li&gt;Remove and discard any foil or plastic seals into the &lt;strong&gt;Garbage Bin.&lt;\/strong&gt;&lt;\/li&gt; \n &lt;li&gt;Then rinse (if necessary and possible) before placing in the&amp;nbsp;&lt;strong&gt;Blue Bin&lt;\/strong&gt; with lid on.&lt;\/li&gt; \n&lt;\/ul&gt;",
+      "id":"nnEzlxzpsdCEicKTLKWsIg",
+      "body":"&lt;ul&gt;\n&lt;li&gt;Remove and discard any foil or plastic seals into the &lt;strong&gt;Garbage Bin.&lt;\/strong&gt;&lt;\/li&gt;\n&lt;li&gt;Then rinse (if necessary and possible) before placing in the&amp;nbsp;&lt;strong&gt;Blue Bin&lt;\/strong&gt; with lid on.&lt;\/li&gt;\n&lt;\/ul&gt;",
       "category":"Blue Bin",
       "title":"Blue Bin (cardboard can)",
-      "keywords":"cardboard cans, Pringles cans, potato chips cardboard containers, cardboard nut cans, spiral cardboard cans, cardboard coffee cans, refrigerated dough cardboard containers, Pillsbury dough cans, powdered drink mix cardboard cans"
+      "keywords":"cardboard cans, Pringles cans, cardboard potato chips containers, cardboard nut cans, spiral cardboard cans, cardboard coffee cans, cardboard refrigerated dough containers, Pillsbury dough cans, cardboard powdered drink mix cans, boxboard cans, cardboard cocoa powder cans, cardboard raisins cans"
    },
    {
       "body":"&lt;ul&gt; \n &lt;li&gt;Empty and rinse (if necessary and possible) this item before placing it in your &lt;strong&gt;Blue Bin.&lt;\/strong&gt;&lt;\/li&gt; \n &lt;li&gt;To avoid injury, place sharp-edged lids inside cans and pinch shut.&lt;\/li&gt; \n&lt;\/ul&gt;",
@@ -804,10 +805,11 @@
       "keywords":"furnace filter, air filter, water filter, Brita filter, carbon water filter, refrigerator water filter, bitra filter"
    },
    {
-      "body":"&lt;ul&gt; \n &lt;li&gt;Place this empty item in the&amp;nbsp;&lt;strong&gt;Blue Bin.&lt;\/strong&gt;&lt;\/li&gt; \n&lt;\/ul&gt;",
+      "id":"Rzhx9Q$7_h6vw41LjhtDXA",
+      "body":"&lt;ul&gt;\n&lt;li&gt;Place this item in the&amp;nbsp;&lt;strong&gt;Blue Bin.&lt;\/strong&gt;&lt;\/li&gt;\n&lt;\/ul&gt;",
       "category":"Blue Bin",
       "title":"Blue Bin (miscellaneous plastic)",
-      "keywords":"plastic contact lenses cases, plastic envelopes, Canada Post plastic sealing envelopes, plastic shipping envelopes, plastic mailing envelopes, plastic fruit baskets, plastic berry baskets, green plastic mesh fruit baskest, dental floss boxes, PETE 1 packaging, plastic handles on cardboard baskets, plastic cat litter boxes, plastic kitty litter boxes, plastic cat litter bins"
+      "keywords":"plastic envelopes, Canada Post plastic sealing envelopes, plastic shipping envelopes, plastic mailing envelopes, plastic fruit baskets, plastic berry baskets, green plastic mesh fruit baskest, dental floss boxes, PETE 1 packaging, plastic handles on cardboard baskets, plastic cat litter boxes, plastic kitty litter boxes, plastic cat litter bins"
    },
    {
       "id":"9bas11c9klAxuMNuvDjw3g",
@@ -1008,7 +1010,7 @@
       "body":"&lt;ul&gt;\n&lt;li&gt;Consider donating items in good and working order to&amp;nbsp;&lt;a href=&quot;https:\/\/www.toronto.ca\/reduce-reuse\/?accordion=not-for-profit-agencies-and-donations\/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;not-for-profit agencies&lt;\/a&gt;.&lt;\/li&gt;\n&lt;li&gt;Items can also be dropped off for reuse at&amp;nbsp;&lt;a href=&quot;http:\/\/www.toronto.ca\/environment_days\/index.htm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Community Environment Days&lt;\/a&gt;.&lt;\/li&gt;\n&lt;li&gt;Alternatively, this item should be placed in the&amp;nbsp;&lt;strong&gt;Garbage Bin.&lt;\/strong&gt;&lt;\/li&gt;\n&lt;\/ul&gt;",
       "category":"Garbage",
       "title":"Garbage Bin (can be donated - miscellaneous)",
-      "keywords":"tools, power tool, drill, sander, hammer, screwdriver, wrench, pliers, saw, chisel, toy (plastic or other material), holiday decoration, wreath, garland, Christmas bulbs, tinsel, Christmas tree ornament, decorations, clothes pin, clothes peg, instrument, drum (musical), matches, manual typewriter, sand filled weight, plastic dumbbell, picnic cooler, plastic cooler"
+      "keywords":"tools, power tool, drill, sander, hammer, screwdriver, wrench, pliers, saw, chisel, toy (plastic or other material), holiday decoration, Christmas bulbs, tinsel, Christmas tree ornament, decorations, clothes pin, clothes peg, instrument, drum (musical), matches, manual typewriter, sand filled weight, plastic dumbbell, picnic cooler, plastic cooler, garland (artificial), wreath (artificial)"
    },
    {
       "id":"Q6ml3reDVtdxfeUHctZTjQ",
@@ -1217,5 +1219,11 @@
       "category":"Garbage",
       "title":"Coffee Pod",
       "keywords":"coffee disc, Tassimo coffee pod, Keurig coffee pod, Nespresso coffee pod, T-discs, K cup, k-cup, coffee pods, compostable coffee pod, coffee capsule, K-Cup, k-cup coffee pod, coffee pod (all types),"
+   },
+   {
+      "body":"&lt;p class=&quot;MsoNormal&quot;&gt;&lt;a name=&quot;_GoBack&quot;&gt;&lt;\/a&gt;&lt;\/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Place this item in the&amp;nbsp;&lt;strong&gt;Garbage Bin.&lt;\/strong&gt;&lt;\/li&gt;\n&lt;\/ul&gt;",
+      "category":"Garbage",
+      "title":"Contact len",
+      "keywords":"plastic contact lens cases, contact lens blister packs"
    }
 ]

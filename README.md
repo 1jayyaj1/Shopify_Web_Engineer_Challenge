@@ -3,7 +3,7 @@
 
 ## Hosted Version
 
-Hello! Hello! Heres the link for the hosted version of this website: https://evening-forest-19899.herokuapp.com/
+Hello Hello Hello! Heres the link for the hosted version of this website: https://evening-forest-19899.herokuapp.com/
 
 
 ## Table of contents

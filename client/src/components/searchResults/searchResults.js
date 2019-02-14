@@ -1,5 +1,5 @@
 import React from 'react';
-import './searchResults.min.css';
+import './searchResults.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Table, Label } from 'reactstrap';
 import { Row, Col } from 'react-grid-system';

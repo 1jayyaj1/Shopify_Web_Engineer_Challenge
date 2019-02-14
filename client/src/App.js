@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.min.css';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './components/search/search.js'
 import Header from './components/header/header.js'
@@ -15,16 +15,6 @@ class App extends React.Component {
       favouritesList: [], // List that contains the elements that were favourited.
       searchResultAlert: "Get started by searching waste items" // Default message when no keywords are searched.
      }
-    this.connecToServer = this.connecToServer.bind(this);
-  }
-
-  connecToServer() {
-    fetch('/');
-  }
-
-  // Connects to server as soon as the page loads.
-  componentDidMount(){
-    this.connecToServer();
   }
 
   // Creates a JS object in the same format as the one got from the JSON file.
